@@ -23,31 +23,18 @@ flag template-haskell-209
        description: If true, use template-haskell 2.9 or older, otherwise use template-haskell 2.10 or newer.
        default:     False
 
-flag template-haskell-210
-       description: If true, use template-haskell 2.10 or older, otherwise use template-haskell 2.11 or newer.
-       default:     False
-
 library
   exposed-modules:
-                       Language.Haskell.TH.Compat.TypeVariables
                        Language.Haskell.TH.Compat.Constraint
 
-  if flag(template-haskell-210)
-    if flag(template-haskell-209)
-      other-modules:
+  if flag(template-haskell-209)
+    other-modules:
                        Language.Haskell.TH.Compat.Constraint.V209
-                       Language.Haskell.TH.Compat.TypeVariables.V210
-      build-depends:     template-haskell >=2.7 && <2.10
-    else
-      other-modules:
-                       Language.Haskell.TH.Compat.Constraint.Current
-                       Language.Haskell.TH.Compat.TypeVariables.V210
-      build-depends:     template-haskell ==2.10.*
+    build-depends:       template-haskell >=2.7 && <2.10
   else
     other-modules:
                        Language.Haskell.TH.Compat.Constraint.Current
-                       Language.Haskell.TH.Compat.TypeVariables.Current
-    build-depends:       template-haskell >=2.11
+    build-depends:       template-haskell >=2.10
 
   build-depends:         base <5
                        , containers
