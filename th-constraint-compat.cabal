@@ -1,9 +1,9 @@
 
 name:                th-constraint-compat
 version:             0.0.1.0
-synopsis:            Compatibility for type constraint and type variables
+synopsis:            Compatibility for type constraint template
 description:         This package provides compatibe interfaces
-                     for type constraint and type variables
+                     for type constraint template
 license:             BSD3
 license-file:        LICENSE
 author:              Kei Hibino
